@@ -1,0 +1,14 @@
+diff --git a/dist/vanilla-extract-vite-plugin.cjs.dev.js b/dist/vanilla-extract-vite-plugin.cjs.dev.js
+index 61ec4d8fffb675caf958206e53ecf92997f858d0..113d7a8e31e63ac213e1d1cfe464916598a15c04 100644
+--- a/dist/vanilla-extract-vite-plugin.cjs.dev.js
++++ b/dist/vanilla-extract-vite-plugin.cjs.dev.js
+@@ -187,6 +187,9 @@ function vanillaExtractPlugin({
+         identOption
+       });
+       for (const file of watchFiles) {
++        if(file.includes("node_modules")){
++          continue;
++        }
+         // In start mode, we need to prevent the file from rewatching itself.
+         // If it's a `build --watch`, it needs to watch everything.
+         if (config.command === 'build' || vite.normalizePath(file) !== validId) {
